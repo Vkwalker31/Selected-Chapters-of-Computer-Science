@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Мои покупки{% endblock %}
+{% block content %}
+<h1>Мои покупки билетов и промокоды</h1>
+<ul>
+  {% for p in purchases %}
+    <li>Дата: {{ p.purchased_at|date:"d/m/Y H:i" }}, сумма {{ p.price }}, промокод: {{ p.promo_code|default:"—" }}, экскурсия: {{ p.tour|default:"—" }}</li>
+  {% empty %}
+    <li>Покупок пока нет.</li>
+  {% endfor %}
+</ul>
+<p><a href="{% url 'pages:promo_list' %}">Промокоды и купоны</a></p>
+{% endblock %}

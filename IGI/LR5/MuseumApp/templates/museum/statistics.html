@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Статистика{% endblock %}
+{% block content %}
+<h1>Статистические показатели</h1>
+<p>Текущая дата (ваша зона): <strong id="local-date"></strong> | UTC: <strong id="utc-date"></strong></p>
+<pre id="text-calendar"></pre>
+
+<h2>Экспонаты по видам искусства (диаграмма)</h2>
+{% if chart_data %}
+  <div style="max-width: 400px;">
+    {% for item in exhibits_by_art_type %}
+      <div style="margin: 4px 0;">
+        <span style="display: inline-block; width: 120px;">{{ item.art_type__name|default:"Без типа" }}</span>
+        <span style="display: inline-block; background: #4a90d9; height: 20px; width: {{ item.cnt }}0px; min-width: 20px;"></span>
+        {{ item.cnt }}
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>Нет данных для диаграммы.</p>
+{% endif %}
+
+<h2>Экспонаты по видам искусства (список)</h2>
+<ul>
+  {% for item in exhibits_by_art_type %}
+    <li>{{ item.art_type__name|default:"Без типа" }}: {{ item.cnt }}</li>
+  {% empty %}
+    <li>Нет данных.</li>
+  {% endfor %}
+</ul>
+
+<h2>Продажи билетов</h2>
+<p>Всего покупок: {{ ticket_stats.count|default:0 }}</p>
+<p>Общая сумма: {{ ticket_stats.total_sum|default:0 }}</p>
+<p>Средняя сумма: {{ ticket_stats.avg_price|default:0 }}</p>
+
+<h2>Экскурсии (размер группы)</h2>
+<p>Средний размер группы: {{ avg_group_size|default:"—" }}</p>
+<p>Медиана размера группы: {{ median_group_size|default:"—" }}</p>
+
+{% if user.is_superuser %}
+  <p><a href="{% url 'museum:admin_stats' %}">Расширенная статистика (админ)</a></p>
+{% endif %}
+
+<script>
+(function() {
+  var now = new Date();
+  var d = now.getDate(), m = now.getMonth() + 1, y = now.getFullYear();
+  var pad = function(n) { return (n < 10 ? '0' : '') + n; };
+  document.getElementById('local-date').textContent = pad(d) + '/' + pad(m) + '/' + y;
+  var u = new Date(now.toUTCString());
+  document.getElementById('utc-date').textContent = pad(u.getUTCDate()) + '/' + pad(u.getUTCMonth() + 1) + '/' + u.getUTCFullYear();
+  // Текстовый календарь на текущий месяц
+  var daysInMonth = new Date(y, m, 0).getDate();
+  var firstDay = new Date(y, m - 1, 1).getDay();
+  var lines = [ 'Пн Вт Ср Чт Пт Сб Вс' ];
+  var week = '';
+  for (var i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) week += '   ';
+  for (var day = 1; day <= daysInMonth; day++) {
+    week += (day < 10 ? ' ' : '') + day + ' ';
+    if ((day + (firstDay === 0 ? 6 : firstDay - 1)) % 7 === 0) { lines.push(week); week = ''; }
+  }
+  if (week) lines.push(week);
+  document.getElementById('text-calendar').textContent = lines.join('\n');
+})();
+</script>
+{% endblock %}

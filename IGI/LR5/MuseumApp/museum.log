@@ -1,0 +1,194 @@
+DEBUG 2026-02-05 21:21:10,267 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,850 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,851 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,852 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,852 utils (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,852 utils (0.000) PRAGMA foreign_keys; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,852 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2026-02-05 21:21:15,853 schema CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:21:15,855 utils (0.002) CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); args=None; alias=default
+DEBUG 2026-02-05 21:21:15,855 utils (0.000) PRAGMA foreign_key_check; args=None; alias=default
+DEBUG 2026-02-05 21:21:17,327 utils (1.472) COMMIT; args=None; alias=default
+DEBUG 2026-02-05 21:21:17,328 utils (0.000) ROLLBACK; args=None; alias=default
+DEBUG 2026-02-05 21:34:30,151 schema CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,155 schema CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,163 schema CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); (params ())
+DEBUG 2026-02-05 21:34:30,173 schema CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,178 schema CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE); (params None)
+DEBUG 2026-02-05 21:34:30,179 schema CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,188 schema CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,190 schema CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,191 schema CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,192 schema CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); (params None)
+DEBUG 2026-02-05 21:34:30,192 schema CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params None)
+DEBUG 2026-02-05 21:34:30,192 schema CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id"); (params None)
+DEBUG 2026-02-05 21:34:30,193 schema CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params None)
+DEBUG 2026-02-05 21:34:30,193 schema CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params None)
+DEBUG 2026-02-05 21:34:30,193 schema CREATE UNIQUE INDEX "auth_user_groups_user_id_group_id_94350c0c_uniq" ON "auth_user_groups" ("user_id", "group_id"); (params None)
+DEBUG 2026-02-05 21:34:30,194 schema CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params None)
+DEBUG 2026-02-05 21:34:30,194 schema CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params None)
+DEBUG 2026-02-05 21:34:30,195 schema CREATE UNIQUE INDEX "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" ON "auth_user_user_permissions" ("user_id", "permission_id"); (params None)
+DEBUG 2026-02-05 21:34:30,195 schema CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params None)
+DEBUG 2026-02-05 21:34:30,196 schema CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params None)
+DEBUG 2026-02-05 21:34:30,207 schema CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,208 schema CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params None)
+DEBUG 2026-02-05 21:34:30,208 schema CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params None)
+DEBUG 2026-02-05 21:34:30,222 schema CREATE TABLE "new__django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,223 schema INSERT INTO "new__django_admin_log" ("id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time") SELECT "id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time" FROM "django_admin_log"; (params ())
+DEBUG 2026-02-05 21:34:30,224 schema DROP TABLE "django_admin_log"; (params ())
+DEBUG 2026-02-05 21:34:30,225 schema ALTER TABLE "new__django_admin_log" RENAME TO "django_admin_log"; (params ())
+DEBUG 2026-02-05 21:34:30,227 schema CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+DEBUG 2026-02-05 21:34:30,228 schema CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+DEBUG 2026-02-05 21:34:30,245 schema CREATE TABLE "new__django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL); (params None)
+DEBUG 2026-02-05 21:34:30,246 schema INSERT INTO "new__django_content_type" ("id", "app_label", "model", "name") SELECT "id", "app_label", "model", "name" FROM "django_content_type"; (params ())
+DEBUG 2026-02-05 21:34:30,246 schema DROP TABLE "django_content_type"; (params ())
+DEBUG 2026-02-05 21:34:30,247 schema ALTER TABLE "new__django_content_type" RENAME TO "django_content_type"; (params ())
+DEBUG 2026-02-05 21:34:30,248 schema CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); (params ())
+DEBUG 2026-02-05 21:34:30,270 schema ALTER TABLE "django_content_type" DROP COLUMN "name"; (params ())
+DEBUG 2026-02-05 21:34:30,289 schema CREATE TABLE "new__auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,290 schema INSERT INTO "new__auth_permission" ("id", "content_type_id", "codename", "name") SELECT "id", "content_type_id", "codename", "name" FROM "auth_permission"; (params ())
+DEBUG 2026-02-05 21:34:30,290 schema DROP TABLE "auth_permission"; (params ())
+DEBUG 2026-02-05 21:34:30,291 schema ALTER TABLE "new__auth_permission" RENAME TO "auth_permission"; (params ())
+DEBUG 2026-02-05 21:34:30,295 schema CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); (params ())
+DEBUG 2026-02-05 21:34:30,295 schema CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+DEBUG 2026-02-05 21:34:30,313 schema CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,314 schema INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email" FROM "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,314 schema DROP TABLE "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,315 schema ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,346 schema CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL); (params None)
+DEBUG 2026-02-05 21:34:30,347 schema INSERT INTO "new__auth_user" ("id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login") SELECT "id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login" FROM "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,348 schema DROP TABLE "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,348 schema ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,379 schema CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(150) NOT NULL UNIQUE); (params None)
+DEBUG 2026-02-05 21:34:30,380 schema INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username") SELECT "id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username" FROM "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,381 schema DROP TABLE "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,381 schema ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,398 schema CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_name" varchar(150) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,399 schema INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name" FROM "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,399 schema DROP TABLE "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,400 schema ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,414 schema CREATE TABLE "new__auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE); (params None)
+DEBUG 2026-02-05 21:34:30,415 schema INSERT INTO "new__auth_group" ("id", "name") SELECT "id", "name" FROM "auth_group"; (params ())
+DEBUG 2026-02-05 21:34:30,415 schema DROP TABLE "auth_group"; (params ())
+DEBUG 2026-02-05 21:34:30,417 schema ALTER TABLE "new__auth_group" RENAME TO "auth_group"; (params ())
+DEBUG 2026-02-05 21:34:30,455 schema CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "last_name" varchar(150) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "first_name" varchar(150) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,456 schema INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name") SELECT "id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name" FROM "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,456 schema DROP TABLE "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,457 schema ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+DEBUG 2026-02-05 21:34:30,462 schema CREATE TABLE "museum_arttype" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(200) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,464 schema CREATE TABLE "museum_employeeposition" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(200) NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,467 schema CREATE TABLE "museum_exhibition" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(300) NOT NULL, "description" text NOT NULL, "start_date" date NULL, "end_date" date NULL); (params None)
+DEBUG 2026-02-05 21:34:30,472 schema CREATE TABLE "museum_hall" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "number" varchar(20) NOT NULL, "name" varchar(200) NOT NULL, "floor" smallint unsigned NOT NULL CHECK ("floor" >= 0), "area" decimal NULL); (params None)
+DEBUG 2026-02-05 21:34:30,477 schema CREATE TABLE "museum_ticketprice" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(200) NOT NULL, "base_price" decimal NOT NULL, "day_of_week" smallint unsigned NULL CHECK ("day_of_week" >= 0), "is_child" bool NOT NULL, "is_adult" bool NOT NULL, "is_extra_service" bool NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,497 schema CREATE TABLE "museum_employee" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "full_name" varchar(200) NOT NULL, "birth_date" date NULL, "phone" varchar(25) NOT NULL, "email" varchar(254) NOT NULL, "user_id" integer NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "position_id" bigint NULL REFERENCES "museum_employeeposition" ("id") DEFERRABLE INITIALLY DEFERRED, "hall_id" bigint NULL REFERENCES "museum_hall" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,519 schema CREATE TABLE "museum_exhibit" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(300) NOT NULL, "date_of_entry" date NULL, "description" text NOT NULL, "image" varchar(100) NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "art_type_id" bigint NULL REFERENCES "museum_arttype" ("id") DEFERRABLE INITIALLY DEFERRED, "guardian_id" bigint NULL REFERENCES "museum_employee" ("id") DEFERRABLE INITIALLY DEFERRED, "hall_id" bigint NULL REFERENCES "museum_hall" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,544 schema CREATE TABLE "museum_exhibitionexhibit" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "order" smallint unsigned NOT NULL CHECK ("order" >= 0), "exhibit_id" bigint NOT NULL REFERENCES "museum_exhibit" ("id") DEFERRABLE INITIALLY DEFERRED, "exhibition_id" bigint NOT NULL REFERENCES "museum_exhibition" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,563 schema CREATE TABLE "new__museum_exhibition" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(300) NOT NULL, "description" text NOT NULL, "start_date" date NULL, "end_date" date NULL); (params None)
+DEBUG 2026-02-05 21:34:30,564 schema INSERT INTO "new__museum_exhibition" ("id", "name", "description", "start_date", "end_date") SELECT "id", "name", "description", "start_date", "end_date" FROM "museum_exhibition"; (params ())
+DEBUG 2026-02-05 21:34:30,564 schema DROP TABLE "museum_exhibition"; (params ())
+DEBUG 2026-02-05 21:34:30,565 schema ALTER TABLE "new__museum_exhibition" RENAME TO "museum_exhibition"; (params ())
+DEBUG 2026-02-05 21:34:30,568 schema CREATE INDEX "museum_employee_position_id_8aa8c2fc" ON "museum_employee" ("position_id"); (params ())
+DEBUG 2026-02-05 21:34:30,568 schema CREATE INDEX "museum_employee_hall_id_47284c48" ON "museum_employee" ("hall_id"); (params ())
+DEBUG 2026-02-05 21:34:30,569 schema CREATE INDEX "museum_exhibit_art_type_id_6d673609" ON "museum_exhibit" ("art_type_id"); (params ())
+DEBUG 2026-02-05 21:34:30,569 schema CREATE INDEX "museum_exhibit_guardian_id_58f2c442" ON "museum_exhibit" ("guardian_id"); (params ())
+DEBUG 2026-02-05 21:34:30,569 schema CREATE INDEX "museum_exhibit_hall_id_43e8a538" ON "museum_exhibit" ("hall_id"); (params ())
+DEBUG 2026-02-05 21:34:30,570 schema CREATE INDEX "museum_exhibitionexhibit_exhibit_id_e271f306" ON "museum_exhibitionexhibit" ("exhibit_id"); (params ())
+DEBUG 2026-02-05 21:34:30,572 schema CREATE INDEX "museum_exhibitionexhibit_exhibition_id_84d218bc" ON "museum_exhibitionexhibit" ("exhibition_id"); (params ())
+DEBUG 2026-02-05 21:34:30,600 schema ALTER TABLE "museum_exhibition" ADD COLUMN "hall_id" bigint NULL REFERENCES "museum_hall" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+DEBUG 2026-02-05 21:34:30,629 schema CREATE TABLE "museum_show" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(300) NOT NULL, "description" text NOT NULL, "start_date" date NULL, "end_date" date NULL); (params None)
+DEBUG 2026-02-05 21:34:30,630 schema CREATE TABLE "museum_show_exhibits" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "show_id" bigint NOT NULL REFERENCES "museum_show" ("id") DEFERRABLE INITIALLY DEFERRED, "exhibit_id" bigint NOT NULL REFERENCES "museum_exhibit" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,671 schema CREATE TABLE "museum_tour" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "code" varchar(50) NOT NULL, "name" varchar(300) NOT NULL, "date" datetime NOT NULL, "group_size" integer unsigned NOT NULL CHECK ("group_size" >= 0), "season" varchar(10) NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "conductor_id" bigint NULL REFERENCES "museum_employee" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,696 schema CREATE TABLE "museum_ticketpurchase" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "price" decimal NOT NULL, "promo_code" varchar(50) NOT NULL, "purchased_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "tour_id" bigint NULL REFERENCES "museum_tour" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,700 schema CREATE INDEX "museum_exhibition_hall_id_2469624f" ON "museum_exhibition" ("hall_id"); (params None)
+DEBUG 2026-02-05 21:34:30,700 schema CREATE UNIQUE INDEX "museum_show_exhibits_show_id_exhibit_id_e433103b_uniq" ON "museum_show_exhibits" ("show_id", "exhibit_id"); (params None)
+DEBUG 2026-02-05 21:34:30,701 schema CREATE INDEX "museum_show_exhibits_show_id_e1cef634" ON "museum_show_exhibits" ("show_id"); (params None)
+DEBUG 2026-02-05 21:34:30,701 schema CREATE INDEX "museum_show_exhibits_exhibit_id_2349acfe" ON "museum_show_exhibits" ("exhibit_id"); (params None)
+DEBUG 2026-02-05 21:34:30,702 schema CREATE INDEX "museum_tour_conductor_id_8df8d0cd" ON "museum_tour" ("conductor_id"); (params None)
+DEBUG 2026-02-05 21:34:30,702 schema CREATE INDEX "museum_ticketpurchase_user_id_926d43c9" ON "museum_ticketpurchase" ("user_id"); (params None)
+DEBUG 2026-02-05 21:34:30,703 schema CREATE INDEX "museum_ticketpurchase_tour_id_be9ad03c" ON "museum_ticketpurchase" ("tour_id"); (params None)
+DEBUG 2026-02-05 21:34:30,706 schema CREATE TABLE "pages_article" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(300) NOT NULL, "content" text NOT NULL, "is_published" bool NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,708 schema CREATE TABLE "pages_companyinfo" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "content" text NOT NULL, "order" smallint unsigned NOT NULL CHECK ("order" >= 0)); (params None)
+DEBUG 2026-02-05 21:34:30,711 schema CREATE TABLE "pages_contact" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(200) NOT NULL, "role" varchar(300) NOT NULL, "photo" varchar(100) NULL, "phone" varchar(25) NOT NULL, "email" varchar(254) NOT NULL, "description" text NOT NULL, "order" smallint unsigned NOT NULL CHECK ("order" >= 0)); (params None)
+DEBUG 2026-02-05 21:34:30,714 schema CREATE TABLE "pages_faq" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "question" varchar(500) NOT NULL, "answer" text NOT NULL, "added_at" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,718 schema CREATE TABLE "pages_news" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(300) NOT NULL, "summary" varchar(500) NOT NULL, "content" text NOT NULL, "image" varchar(100) NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,723 schema CREATE TABLE "pages_promocode" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "code" varchar(50) NOT NULL UNIQUE, "description" varchar(300) NOT NULL, "discount_percent" decimal NULL, "discount_amount" decimal NULL, "is_active" bool NOT NULL, "valid_from" datetime NULL, "valid_until" datetime NULL, "created_at" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,728 schema CREATE TABLE "pages_vacancy" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(300) NOT NULL, "description" text NOT NULL, "is_active" bool NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,757 schema CREATE TABLE "pages_review" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "author_name" varchar(200) NOT NULL, "rating" smallint unsigned NOT NULL CHECK ("rating" >= 0), "text" text NOT NULL, "created_at" datetime NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2026-02-05 21:34:30,759 schema CREATE INDEX "pages_review_user_id_c1a8a85d" ON "pages_review" ("user_id"); (params None)
+DEBUG 2026-02-05 21:34:30,764 schema CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL); (params None)
+DEBUG 2026-02-05 21:34:30,766 schema CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params None)
+INFO 2026-02-05 22:27:39,181 autoreload Watching for file changes with StatReloader
+INFO 2026-02-05 22:28:08,535 log "GET / HTTP/1.1" 200 1921
+WARNING 2026-02-05 22:28:09,234 log Not Found: /favicon.ico
+WARNING 2026-02-05 22:28:09,236 log "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2026-02-05 22:28:11,448 log "GET /about HTTP/1.1" 200 1940
+INFO 2026-02-05 22:28:12,317 log "GET /news HTTP/1.1" 200 2059
+INFO 2026-02-05 22:28:13,285 log "GET /faq HTTP/1.1" 200 2114
+INFO 2026-02-05 22:28:14,621 log "GET /contacts HTTP/1.1" 200 1921
+INFO 2026-02-05 22:28:15,236 log "GET /vacancies HTTP/1.1" 200 1940
+INFO 2026-02-05 22:28:15,949 log "GET /reviews HTTP/1.1" 200 2777
+INFO 2026-02-05 22:28:16,408 log "GET /promo HTTP/1.1" 200 2107
+INFO 2026-02-05 22:28:16,913 log "GET /museum/ HTTP/1.1" 200 2561
+INFO 2026-02-05 22:28:17,344 log "GET /museum/halls HTTP/1.1" 200 2352
+INFO 2026-02-05 22:28:18,008 log "GET /museum/tours HTTP/1.1" 200 2638
+INFO 2026-02-05 22:28:18,325 log "GET /museum/exhibitions HTTP/1.1" 200 2086
+INFO 2026-02-05 22:28:19,367 log "GET /museum/statistics HTTP/1.1" 200 3726
+DEBUG 2026-02-05 22:28:20,767 proactor_events Using proactor: IocpProactor
+WARNING 2026-02-05 22:28:20,934 parallel_module Async fetch api2 failed: Cannot connect to host api.quotable.io:443 ssl:default [getaddrinfo failed]
+INFO 2026-02-05 22:28:20,943 basehttp - Broken pipe from ('127.0.0.1', 63785)
+DEBUG 2026-02-05 22:28:23,785 proactor_events Using proactor: IocpProactor
+WARNING 2026-02-05 22:28:23,799 parallel_module Async fetch api2 failed: Cannot connect to host api.quotable.io:443 ssl:default [getaddrinfo failed]
+INFO 2026-02-05 22:28:23,907 log "GET /museum/external-apis HTTP/1.1" 200 2432
+INFO 2026-02-05 22:28:26,430 log "GET /login/ HTTP/1.1" 200 2526
+INFO 2026-02-05 22:28:34,802 log "GET /register HTTP/1.1" 200 3779
+DEBUG 2026-02-06 19:05:28,696 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-06 19:05:28,698 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2026-02-06 19:05:28,699 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-06 19:05:28,699 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2026-02-06 19:05:28,720 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2026-02-06 19:05:28,720 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2026-02-06 19:05:28,721 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+DEBUG 2026-02-06 19:05:28,722 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+DEBUG 2026-02-06 19:05:28,723 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(1,); alias=default
+DEBUG 2026-02-06 19:05:28,724 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+DEBUG 2026-02-06 19:05:28,724 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+DEBUG 2026-02-06 19:05:28,725 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'user', 'permission')); args=('auth', 'group', 'user', 'permission'); alias=default
+DEBUG 2026-02-06 19:05:28,725 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(2, 3, 4); alias=default
+DEBUG 2026-02-06 19:05:28,726 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+DEBUG 2026-02-06 19:05:28,726 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+DEBUG 2026-02-06 19:05:28,727 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+DEBUG 2026-02-06 19:05:28,727 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(5,); alias=default
+DEBUG 2026-02-06 19:05:28,728 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+DEBUG 2026-02-06 19:05:28,728 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+DEBUG 2026-02-06 19:05:28,728 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+DEBUG 2026-02-06 19:05:28,729 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(6,); alias=default
+DEBUG 2026-02-06 19:05:28,729 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+DEBUG 2026-02-06 19:05:28,730 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'museum'; args=('museum',); alias=default
+DEBUG 2026-02-06 19:05:28,730 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'museum' AND "django_content_type"."model" IN ('exhibit', 'exhibition', 'ticketprice', 'arttype', 'ticketpurchase', 'employeeposition', 'show', 'hall', 'tour', 'exhibitionexhibit', 'employee')); args=('museum', 'exhibit', 'exhibition', 'ticketprice', 'arttype', 'ticketpurchase', 'employeeposition', 'show', 'hall', 'tour', 'exhibitionexhibit', 'employee'); alias=default
+DEBUG 2026-02-06 19:05:28,731 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17); alias=default
+DEBUG 2026-02-06 19:05:28,732 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'museum'; args=('museum',); alias=default
+DEBUG 2026-02-06 19:05:28,732 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'pages'; args=('pages',); alias=default
+DEBUG 2026-02-06 19:05:28,732 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'pages' AND "django_content_type"."model" IN ('article', 'companyinfo', 'vacancy', 'contact', 'faq', 'news', 'review', 'promocode')); args=('pages', 'article', 'companyinfo', 'vacancy', 'contact', 'faq', 'news', 'review', 'promocode'); alias=default
+DEBUG 2026-02-06 19:05:28,733 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (18, 19, 20, 21, 22, 23, 24, 25) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(18, 19, 20, 21, 22, 23, 24, 25); alias=default
+DEBUG 2026-02-06 19:05:28,734 utils (0.000) SELECT "django_content_type"."model" AS "model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'pages'; args=('pages',); alias=default
