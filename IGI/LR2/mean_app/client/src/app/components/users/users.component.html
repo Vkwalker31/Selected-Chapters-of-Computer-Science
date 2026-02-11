@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>👥 User Management</h1>
+
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <div class="card">
+    <h2>➕ Add New User</h2>
+    <form (ngSubmit)="createUser()">
+      <input 
+        type="text" 
+        placeholder="Name" 
+        [(ngModel)]="newUser.name" 
+        name="name" 
+        required>
+      <input 
+        type="email" 
+        placeholder="Email" 
+        [(ngModel)]="newUser.email" 
+        name="email" 
+        required>
+      <button type="submit" class="btn-primary">Add User</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>📋 Users List</h2>
+    <div *ngIf="users.length === 0" class="no-data">
+      <p>No users found. Add your first user above! 👆</p>
+    </div>
+    <table *ngIf="users.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt | date:'short' }}</td>
+          <td>
+            <button (click)="startEdit(user)" class="btn-edit">✏️ Edit</button>
+            <button (click)="deleteUser(user._id)" class="btn-delete">🗑️ Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="editingId" class="modal">
+    <div class="modal-content">
+      <h2>✏️ Edit User</h2>
+      <form (ngSubmit)="updateUser()">
+        <input 
+          type="text" 
+          placeholder="Name" 
+          [(ngModel)]="editingUser!.name" 
+          name="edit_name" 
+          required>
+        <input 
+          type="email" 
+          placeholder="Email" 
+          [(ngModel)]="editingUser!.email" 
+          name="edit_email" 
+          required>
+        <div class="modal-buttons">
+          <button type="submit" class="btn-save">Save</button>
+          <button type="button" (click)="cancelEdit()" class="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
